@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import chess.exception.InvalidPositionException;
+
 public class Position {
 	private static final Map<String, Position> positions = new HashMap<>();
 

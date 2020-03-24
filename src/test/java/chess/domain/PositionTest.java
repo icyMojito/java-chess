@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import chess.exception.InvalidPositionException;
+
 class PositionTest {
 	@ParameterizedTest
 	@ValueSource(strings = {"a1", "b5", "d5", "h8"})

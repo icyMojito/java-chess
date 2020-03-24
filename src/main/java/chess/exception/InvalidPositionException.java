@@ -1,4 +1,4 @@
-package chess.domain;
+package chess.exception;
 
 public class InvalidPositionException extends RuntimeException {
 	public InvalidPositionException(String message) {
