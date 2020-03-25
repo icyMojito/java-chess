@@ -54,4 +54,12 @@ public class Cell {
 	public Position getPosition() {
 		return position;
 	}
+
+	public boolean canMove(Position position) {
+		return piece.canMove(position);
+	}
+
+	public void move(Position position) {
+		piece.move(position);
+	}
 }

@@ -16,11 +16,4 @@ public class Pawn extends Piece {
 		}
 		return Math.abs(position.getRow() - to.getRow()) == 1;
 	}
-
-	// private boolean canAttack(Cell cell) {
-	// 	return !cell.isSameTeam(this.team) &&
-	// 		Math.abs(position.getRow() - cell.getPosition().getRow()) == 1 &&
-	// 		Math.abs(position.getColumn() - cell.getPosition().getColumn()) == 1;
-	// }
-
 }

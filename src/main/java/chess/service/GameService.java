@@ -1,4 +1,4 @@
-package chess.domain;
+package chess.service;
 
 public interface GameService {
 	void run();

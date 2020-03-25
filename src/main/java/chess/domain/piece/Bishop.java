@@ -10,8 +10,6 @@ public class Bishop extends Piece {
 
 	@Override
 	public boolean canMove(Position to) {
-		System.out.println(this.position);
-		System.out.println(to);
 		return Math.abs(position.getColumn() - to.getColumn()) == Math.abs(position.getRow() - to.getRow());
 	}
 }

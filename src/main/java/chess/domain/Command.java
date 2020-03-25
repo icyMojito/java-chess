@@ -2,6 +2,10 @@ package chess.domain;
 
 import java.util.Arrays;
 
+import chess.service.GameEndService;
+import chess.service.GameService;
+import chess.service.GameStartService;
+
 public enum Command {
 	START("start", new GameStartService()),
 	END("end", new GameEndService());

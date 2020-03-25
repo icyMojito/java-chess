@@ -1,4 +1,4 @@
-package chess.domain;
+package chess.service;
 
 public class GameEndService implements GameService {
 	@Override

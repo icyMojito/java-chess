@@ -1,5 +1,6 @@
-package chess.domain;
+package chess.service;
 
+import chess.domain.Cells;
 import chess.domain.view.InputView;
 import chess.domain.view.OutputView;
 
@@ -11,11 +12,11 @@ public class GameStartService implements GameService {
 
 		while (true) {
 			String moveCommand = InputView.requestMoveCommand();
-			String[] split = moveCommand.split(" ");
-			String positionA = split[1];
-			String positionB = split[2];
+			String[] input = moveCommand.split(" ");
+			String start = input[1];
+			String destination = input[2];
 
-			cells.move(positionA, positionB);
+			cells.move(start, destination);
 			OutputView.printCells(cells);
 		}
 	}
