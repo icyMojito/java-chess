@@ -3,20 +3,15 @@ package chess.domain.piece;
 import chess.domain.Position;
 import chess.domain.Team;
 
-public abstract class Piece {
-	private boolean isAlive = true;
+public class Piece {
 	private final String name;
-	protected Position position;
-	protected final Team team;
+	private Position position;
+	private final Team team;
 
 	public Piece(String name, Position position, Team team) {
 		this.name = team.change(name);
 		this.position = position;
 		this.team = team;
-	}
-
-	public boolean isAlive() {
-		return isAlive;
 	}
 
 	public boolean isSameTeam(Piece piece) {
@@ -27,7 +22,9 @@ public abstract class Piece {
 		return this.team == team;
 	}
 
-	public abstract boolean canMove(Position to);
+	public boolean canMove(Position to) {
+		return isMovable.of(name).apply(position, to);
+	}
 
 	public String getName() {
 		return this.name;
