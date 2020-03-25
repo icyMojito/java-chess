@@ -3,11 +3,11 @@ package chess.domain.piece;
 import chess.domain.Position;
 import chess.domain.Team;
 
-public class Piece {
+public abstract class Piece {
 	private boolean isAlive = true;
 	private final String name;
-	private Position position;
-	private final Team team;
+	protected Position position;
+	protected final Team team;
 
 	public Piece(String name, Position position, Team team) {
 		this.name = team.change(name);
@@ -23,7 +23,17 @@ public class Piece {
 		return team.isSameTeam(piece.team);
 	}
 
+	public boolean isSameTeam(Team team) {
+		return this.team == team;
+	}
+
+	public abstract boolean canMove(Position to);
+
 	public String getName() {
 		return this.name;
+	}
+
+	public void move(Position to) {
+		this.position = to;
 	}
 }

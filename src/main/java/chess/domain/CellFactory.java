@@ -21,9 +21,13 @@ public class CellFactory {
 	private static void createEmptyBoard(List<Cell> cells) {
 		for (int i = 7; i >= 0; i--) {
 			for (int j = 0; j < 8; j++) {
-				cells.add(new Cell(new Position(i, j), null));
+				cells.add(new Cell(new Position(i, j), name(i, j), null));
 			}
 		}
+	}
+
+	private static String name(int i, int j) {
+		return String.valueOf((char)(j + 'a')) + (i + 1);
 	}
 
 	public static void setInitPieces(List<Cell> cells) {

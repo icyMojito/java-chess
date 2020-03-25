@@ -3,13 +3,15 @@ package chess.domain;
 import java.util.Arrays;
 
 public enum Command {
-	START("start"),
-	END("end");
+	START("start", new GameStartService()),
+	END("end", new GameEndService());
 
-	private String commandString;
+	private final String commandString;
+	private final GameService gameService;
 
-	Command(String commandString) {
+	Command(String commandString, GameService gameService) {
 		this.commandString = commandString;
+		this.gameService = gameService;
 	}
 
 	public static Command of(String input) {
@@ -23,7 +25,7 @@ public enum Command {
 		return this.commandString.equals(input);
 	}
 
-	public boolean isStart() {
-		return this == START;
+	public void run() {
+		this.gameService.run();
 	}
 }
