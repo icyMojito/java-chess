@@ -7,4 +7,11 @@ public enum Team {
 	public boolean isSameTeam(Team team) {
 		return this == team;
 	}
+
+	public String change(String name) {
+		if (this == WHITE) {
+			return name.toLowerCase();
+		}
+		return name.toUpperCase();
+	}
 }

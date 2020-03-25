@@ -53,8 +53,8 @@ end
 - (Player)
 
 - Cell
-    - Position과 Optional<Piece>를 가지며
-    - piece.isSameTeam(other piece) 을 통해 아군 적군을 판별한다.
+    - [x] Position과 Piece를 가지며 --> Optional
+    - [x] piece.isSameTeam(other piece) 을 통해 아군 적군을 판별한다.
     
 - CellFactory
     - Position에서 캐싱해둔 Key값을 바탕으로

@@ -1,22 +1,22 @@
 package chess.domain;
 
 public enum Row {
-	A("a"),
-	B("b"),
-	C("c"),
-	D("d"),
-	E("e"),
-	F("f"),
-	G("g"),
-	H("h");
+	A('a'),
+	B('b'),
+	C('c'),
+	D('d'),
+	E('e'),
+	F('f'),
+	G('g'),
+	H('h');
 
-	private final String name;
+	private final Character name;
 
-	Row(String name) {
+	Row(Character name) {
 		this.name = name;
 	}
 
-	public String getName() {
+	public Character getName() {
 		return name;
 	}
 }
