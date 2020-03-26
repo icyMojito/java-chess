@@ -3,29 +3,35 @@ package chess.domain.cell;
 import java.util.Objects;
 
 public class Position {
-	private final int row;
-	private final int column;
+	private final Row row;
+	private final Column column;
 	private final String name;
 
-	public Position(String name) {
-		String[] split = name.split("");
-		this.column = name.charAt(0) - 'a';
-		this.row = Integer.parseInt(split[1]) - 1;
-		this.name = name;
-	}
-
-	public Position(int row, int column) {
+	public Position(Row row, Column column) {
 		this.row = row;
 		this.column = column;
-		this.name = String.valueOf((char)(column + 'a')) + (row + 1);
+		this.name = row.getName() + column.getName();
+	}
+
+	public Position(int rowValue, int columnValue) {
+		this.row = Row.from(rowValue);
+		this.column = Column.from(columnValue);
+		this.name = row.getName() + column.getName();
+	}
+
+	public Position(String name) {
+		String[] input = name.split("");
+		this.row = Row.fromName(input[0]);
+		this.column = Column.fromName(input[1]);
+		this.name = row.getName() + column.getName();
 	}
 
 	public Position minus(Position other) {
-		return new Position(this.row - other.row, other.column - this.column);
+		return new Position(other.row.minus(row), other.column.minus(column));
 	}
 
 	public Position plus(Position other) {
-		return new Position(this.row + other.row, this.column + other.column);
+		return new Position(row.plus(other.row), column.plus(other.column));
 	}
 
 	public boolean isSameRow(Position to) {
@@ -37,20 +43,20 @@ public class Position {
 	}
 
 	public Position divideSelf() {
-		if (row == 0) {
-			return new Position(0, column / Math.abs(column));
+		if (this.row == Row.A) {
+			return new Position(Row.A, column.divideSelf());
 		}
-		if (column == 0) {
-			return new Position(row / Math.abs(row), 0);
+		if (this.column == Column.ONE) {
+			return new Position(row.divideSelf(), Column.ONE);
 		}
-		return new Position(row / Math.abs(row), column / Math.abs(column));
+		return new Position(row.divideSelf(), column.divideSelf());
 	}
 
-	public int getRow() {
+	public Row getRow() {
 		return row;
 	}
 
-	public int getColumn() {
+	public Column getColumn() {
 		return column;
 	}
 

@@ -6,6 +6,7 @@ import chess.domain.piece.MoveStrategy;
 public class KingMoveStrategy implements MoveStrategy {
 	@Override
 	public boolean apply(Position start, Position to) {
-		return Math.abs(start.getColumn() - to.getColumn()) <= 1 || Math.abs(start.getRow() - to.getRow()) <= 1;
+		Position result = start.minus(to);
+		return Math.abs(result.getColumn().getColumnIntValue()) <= 1 || Math.abs(result.getRow().getRowIntValue()) <= 1;
 	}
 }

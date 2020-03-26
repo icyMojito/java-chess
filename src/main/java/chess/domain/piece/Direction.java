@@ -34,7 +34,8 @@ public enum Direction {
 
 	public static Direction of(Position position) {
 		return Arrays.stream(values())
-			.filter(value -> value.xDegree == position.getRow() && value.yDegree == position.getColumn())
+			.filter(value -> value.xDegree == position.getRow().getRowIntValue()
+				&& value.yDegree == position.getColumn().getColumnIntValue())
 			.findFirst()
 			.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 방향입니다."));
 	}
