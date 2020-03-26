@@ -3,26 +3,28 @@ package chess.domain.cell;
 import java.util.Arrays;
 
 public enum Row {
-	A("a", 0),
-	B("b", 1),
-	C("c", 2),
-	D("d", 3),
-	E("e", 4),
-	F("f", 5),
-	G("g", 6),
-	H("h", 7);
+	A("a", 0, 0),
+	B("b", 1, -1),
+	C("c", 2, -2),
+	D("d", 3, -3),
+	E("e", 4, -4),
+	F("f", 5, -5),
+	G("g", 6, -6),
+	H("h", 7, -7);
 
 	private final String name;
 	private final int rowIntValue;
+	private final int minusRowInt;
 
-	Row(String name, int value) {
+	Row(String name, int value, int minusRowInt) {
 		this.name = name;
 		this.rowIntValue = value;
+		this.minusRowInt = minusRowInt;
 	}
 
 	public static Row from(int rowValue) {
 		return Arrays.stream(values())
-			.filter(value -> value.rowIntValue == rowValue)
+			.filter(value -> value.rowIntValue == rowValue || value.minusRowInt == rowValue)
 			.findFirst()
 			.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 칼럼입니다."));
 	}

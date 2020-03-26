@@ -27,7 +27,7 @@ public class Position {
 	}
 
 	public Position minus(Position other) {
-		return new Position(other.row.minus(row), other.column.minus(column));
+		return new Position(other.row.minus(this.row), other.column.minus(this.column));
 	}
 
 	public Position plus(Position other) {
@@ -74,5 +74,10 @@ public class Position {
 	@Override
 	public int hashCode() {
 		return Objects.hash(row, column);
+	}
+
+	@Override
+	public String toString() {
+		return row + " " + column + " " + name;
 	}
 }
