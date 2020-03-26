@@ -1,4 +1,4 @@
-package chess.domain;
+package chess.domain.cell;
 
 import java.util.Objects;
 
@@ -18,6 +18,32 @@ public class Position {
 		this.row = row;
 		this.column = column;
 		this.name = String.valueOf((char)(column + 'a')) + (row + 1);
+	}
+
+	public Position minus(Position other) {
+		return new Position(this.row - other.row, other.column - this.column);
+	}
+
+	public Position plus(Position other) {
+		return new Position(this.row + other.row, this.column + other.column);
+	}
+
+	public boolean isSameRow(Position to) {
+		return this.row == to.row;
+	}
+
+	public boolean isSameColumn(Position to) {
+		return this.column == to.column;
+	}
+
+	public Position divideSelf() {
+		if (row == 0) {
+			return new Position(0, column / Math.abs(column));
+		}
+		if (column == 0) {
+			return new Position(row / Math.abs(row), 0);
+		}
+		return new Position(row / Math.abs(row), column / Math.abs(column));
 	}
 
 	public int getRow() {
@@ -42,22 +68,5 @@ public class Position {
 	@Override
 	public int hashCode() {
 		return Objects.hash(row, column);
-	}
-
-	public boolean isSameRow(Position to) {
-		return this.row == to.row;
-	}
-
-	public boolean isSameColumn(Position to) {
-		return this.column == to.column;
-	}
-
-	@Override
-	public String toString() {
-		return "Position{" +
-			"row=" + row +
-			", column=" + column +
-			", name='" + name + '\'' +
-			'}';
 	}
 }

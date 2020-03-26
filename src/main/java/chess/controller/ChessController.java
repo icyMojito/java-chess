@@ -1,6 +1,6 @@
 package chess.controller;
 
-import chess.domain.Command;
+import chess.Command;
 import chess.domain.view.InputView;
 
 public class ChessController {

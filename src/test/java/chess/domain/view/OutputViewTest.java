@@ -2,7 +2,7 @@ package chess.domain.view;
 
 import org.junit.jupiter.api.Test;
 
-import chess.domain.Cells;
+import chess.domain.cell.Cells;
 
 class OutputViewTest {
 	@Test

@@ -1,4 +1,4 @@
-package chess.domain;
+package chess.domain.cell;
 
 import java.util.Collections;
 import java.util.List;

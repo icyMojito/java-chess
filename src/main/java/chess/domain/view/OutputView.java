@@ -2,8 +2,8 @@ package chess.domain.view;
 
 import java.util.List;
 
-import chess.domain.Cell;
-import chess.domain.Cells;
+import chess.domain.cell.Cell;
+import chess.domain.cell.Cells;
 
 public class OutputView {
 	private static final String NEW_LINE = System.lineSeparator();

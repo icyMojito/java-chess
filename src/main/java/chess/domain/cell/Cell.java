@@ -1,8 +1,9 @@
-package chess.domain;
+package chess.domain.cell;
 
 import java.util.Objects;
 
 import chess.domain.piece.Piece;
+import chess.domain.piece.Team;
 
 public class Cell {
 	private final Position position;

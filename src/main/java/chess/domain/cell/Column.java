@@ -1,4 +1,4 @@
-package chess.domain;
+package chess.domain.cell;
 
 public enum Column {
 	EIGHT("8"),

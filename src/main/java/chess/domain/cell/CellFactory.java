@@ -1,14 +1,15 @@
-package chess.domain;
+package chess.domain.cell;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import chess.domain.piece.Bishop;
-import chess.domain.piece.King;
-import chess.domain.piece.Knight;
-import chess.domain.piece.Pawn;
-import chess.domain.piece.Queen;
-import chess.domain.piece.Rook;
+import chess.domain.piece.Team;
+import chess.domain.piece.bishop.Bishop;
+import chess.domain.piece.king.King;
+import chess.domain.piece.knight.Knight;
+import chess.domain.piece.pawn.Pawn;
+import chess.domain.piece.queen.Queen;
+import chess.domain.piece.rook.Rook;
 
 public class CellFactory {
 	public static List<Cell> createInitBoard() {

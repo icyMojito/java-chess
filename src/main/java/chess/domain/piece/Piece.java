@@ -1,7 +1,8 @@
 package chess.domain.piece;
 
-import chess.domain.Position;
-import chess.domain.Team;
+import java.util.List;
+
+import chess.domain.cell.Position;
 
 public class Piece {
 	private final String name;
@@ -23,7 +24,11 @@ public class Piece {
 	}
 
 	public boolean canMove(Position to) {
-		return isMovable.of(name).apply(position, to);
+		return UnitType.of(name).apply(position, to);
+	}
+
+	public List<Position> findPath(Position to) {
+		return UnitType.of(name).findPath(position, to);
 	}
 
 	public String getName() {
